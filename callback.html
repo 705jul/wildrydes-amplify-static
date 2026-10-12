@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wild Rydes 로그인 처리중</title>
+</head>
+<body>
+  <h1>로그인 처리중...</h1>
+  <p>잠시만 기다려 주세요.</p>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    (async function () {
+      try {
+        await window.WildRydesAuth.handleCallback();
+      } catch (e) {
+        document.body.innerHTML = `
+          <h1>로그인 처리 실패</h1>
+          <pre>${e.message}</pre>
+          <a href="/">홈으로 이동</a>
+        `;
+      }
+    })();
+  </script>
+</body>
+</html>
